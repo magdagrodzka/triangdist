@@ -37,3 +37,5 @@ rtriang(10, min = 0, max = 10, mode = 5)
 - Functions support vectorized inputs  
 - Inputs are validated (e.g. min < max, mode within range)  
 - The package was checked with devtools::check()
+- The code passes the >95% coverage requirement
+- The code passes the no warnings and no errors requirement
