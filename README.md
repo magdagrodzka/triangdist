@@ -2,51 +2,38 @@
 
 This package implements the triangular distribution in R.
 
-The triangular distribution uses three parameters:
-
-- `min`: lower bound
-- `max`: upper bound
-- `mode`: most likely value
-
-The mode must be between `min` and `max`.
+The triangular distribution is defined by three parameters:
+- min: lower bound
+- max: upper bound
+- mode: most likely value (must be between min and max)
 
 ## Installation
 
-Install the package from GitHub with:
+You can install the package from GitHub using:
 
-```r
 remotes::install_github("magdagrodzka/triangdist")
-```
 
 ## Functions
 
-The package includes four functions:
+The package provides the following functions:
+- dtriang() – density function  
+- ptriang() – distribution function  
+- qtriang() – quantile function  
+- rtriang() – random number generation  
 
-- `dtriang()` for the density
-- `ptriang()` for the distribution function
-- `qtriang()` for quantiles
-- `rtriang()` for random values
-
-They are written to work like the usual R distribution functions, for example
-`dnorm()`, `pnorm()`, `qnorm()`, and `rnorm()`.
+These follow the same structure as standard R functions like dnorm, pnorm, etc.
 
 ## Example
 
-```r
 library(triangdist)
 
-dtriang(5, min = 0, max = 10, mode = 5)
-ptriang(5, min = 0, max = 10, mode = 5)
-qtriang(0.5, min = 0, max = 10, mode = 5)
+dtriang(5, min = 0, max = 10, mode = 5)  
+ptriang(5, min = 0, max = 10, mode = 5)  
+qtriang(0.5, min = 0, max = 10, mode = 5)  
 rtriang(10, min = 0, max = 10, mode = 5)
-```
 
-## Checks
+## Notes
 
-Before submission, run:
-
-```r
-devtools::check()
-covr::report()
-lintr::lint_package()
-```
+- Functions support vectorized inputs  
+- Inputs are validated (e.g. min < max, mode within range)  
+- The package was checked with devtools::check()
