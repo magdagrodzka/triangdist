@@ -129,8 +129,8 @@ qtriang <- function(p, min, max, mode) {
 #' @export
 rtriang <- function(n, min, max, mode) {
   if (length(n) != 1 || is.na(n) || n < 0) {
-    stop("`n` must be a single non-negative number.", call. = FALSE)
+    stop("`n` must be a single non-negative number", call. = FALSE)
   }
 
-  qtriang(runif(as.integer(n)), min = min, max = max, mode = mode)
+  qtriang(stats::runif(as.integer(n)), min = min, max = max, mode = mode)
 }
