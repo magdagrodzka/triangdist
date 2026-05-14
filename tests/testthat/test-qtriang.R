@@ -13,3 +13,16 @@ test_that("quantile validates probabilities", {
   expect_error(qtriang(-0.1, 0, 10, 5), "between 0 and 1")
   expect_error(qtriang(1.1, 0, 10, 5), "between 0 and 1")
 })
+
+test_that("qtriang handles edge cases", {
+  expect_equal(qtriang(0, 0, 1, 0.5), 0)
+  expect_equal(qtriang(1, 0, 1, 0.5), 1)
+  expect_equal(qtriang(0.5, 0, 1, 0.5), 0.5)
+  expect_error(qtriang(-0.1, 0, 1, 0.5))
+  expect_error(qtriang(1.1, 0, 1, 0.5))
+})
+
+test_that("qtriang handles mode at boundaries", {
+  expect_equal(qtriang(0.75, 0, 1, 0), 0.5)     # mode = min
+  expect_equal(qtriang(0.25, 0, 1, 1), 0.5)     # mode = max
+})
